@@ -19,7 +19,7 @@ function post(tweet, callback) {
 }
 
 var randomParams = {
-    "includePartOfSpeech": "noun,adjective,verb,adverb,interjection,pronoun,verb-intransitive,verb-transitive",
+    "includePartOfSpeech": "adjective",
     "hasDictionaryDef": "true",
     "minCorpusCount": 1,
     "maxCorpusCount": -1,
@@ -34,7 +34,7 @@ function doThing() {
         url: 'http://developer.wordnik.com/v4/resources.json',
         success: function() {
             wordnik.words.getRandomWord(randomParams, {responseContentType: 'application/json'}, function(res) {
-                var word = res.obj.word + 'punk';
+                var word = 'The future is here and it is' + res.obj.word;
                 post(word, function() { });
             });
         },
